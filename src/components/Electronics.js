@@ -60,7 +60,7 @@ export default function Electronics() {
             <div className={classes.heroContent}>
                 <Container maxWidth="sm">
                     <Typography component="h3" variant="h3" align="center" color="textPrimary" gutterBottom>
-                        Cutting Edge Electronic Gadgets
+                        Cutting Edge Gadgets
                             </Typography>
                     <Typography variant="h5" align="center" color="textSecondary" paragraph>
                         Gadgets to meet your every requirement in this high-tech era

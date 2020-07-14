@@ -17,7 +17,8 @@ import Jewelry from './Jewelry'
 import Electronics from './Electronics'
 import CategoryIndex from './CategoryIndex'
 import CategoryDetail from './CategoryDetail'
-
+import Loader from './Loader'
+import NotFound from './NotFound'
 
 function GitHub() {
     return (
@@ -92,14 +93,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Parent() {
     const [fetchedProducts, setFetchedProducts] = useState([]);
+    const [dataLoading, setDataLoading] = useState(false);
 
     const classes = useStyles();
 
     async function fetchDataFromApi() {
         if (fetchedProducts === null || fetchedProducts.length < 1) {
+            setDataLoading(true);
             const productsResponse = await fetch('https://fakestoreapi.com/products');
             const products = await productsResponse.json();
             setFetchedProducts(products);
+            setDataLoading(false);
         }
     }
 
@@ -108,6 +112,13 @@ export default function Parent() {
     const clothingProducts = fetchedProducts && fetchedProducts.length > 0 && fetchedProducts.filter(prod => prod.category === 'men clothing' || prod.category === 'women clothing');
     const jewelryProducts = fetchedProducts && fetchedProducts.length > 0 && fetchedProducts.filter(prod => prod.category === 'jewelery');
     const electronicProducts = fetchedProducts && fetchedProducts.length > 0 && fetchedProducts.filter(prod => prod.category === 'electronics');
+
+    if (dataLoading) {
+        return (
+            <Loader open={true} />
+            );
+    }
+
     //debugger;
     return (
         <ThemeProvider theme={theme}>
@@ -140,6 +151,7 @@ export default function Parent() {
                                 <Route path="/" element={<CategoryIndex Products={electronicProducts} />} />
                                 <Route path=":productId" element={<CategoryDetail Products={electronicProducts} />} />
                             </Route>
+                            <Route path="*" element={<NotFound />} />
                         </Routes>
                     </BrowserRouter>
                 </main>

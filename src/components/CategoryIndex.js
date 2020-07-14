@@ -1,14 +1,12 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -59,16 +57,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function GitHub() {
-    return (
-        <Typography variant="body2" color="#424242" align="center">
-            <Link color="inherit" to="https://github.com/ahmedstahir/bootcamp2020-online-store">
-                link of GitHub repository
-      </Link>
-        </Typography>
-    );
-}
-
 export default function CategoryIndex({ Products }) {
 
     const classes = useStyles();
@@ -77,7 +65,7 @@ export default function CategoryIndex({ Products }) {
         if (Products.find(p => p.category === 'men clothing' || p.category === 'women clothing'))
             category = 'clothing';
         else if (Products.find(p => p.category === 'jewelery'))
-            category = 'jewelery';
+            category = 'jewelry';
         else if (Products.find(p => p.category === 'electronics'))
             category = 'electronics';
     }

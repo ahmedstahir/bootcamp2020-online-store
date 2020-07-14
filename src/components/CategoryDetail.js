@@ -3,17 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useParams } from 'react-router-dom';
 
-
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
-
-
+import NotFound from './NotFound';
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -66,16 +60,25 @@ const useStyles = makeStyles((theme) => ({
 export default function CategoryDetail({ Products }) {
     const { productId } = useParams();
     const classes = useStyles();
-    const prod = Products && Products.length > 0 && Object.entries(Products).find(p => p[1].id == productId);
+    const prod = Products && Products.length > 0 && Object.entries(Products).find(p => p[1].id && p[1].id.toString() === productId.toString());
+
+    console.log("Products", Products);
+    console.log("ID", productId);
 
     var category = '';
     if (Products && Products.length > 0) {
         if (Products.find(p => p.category === 'men clothing' || p.category === 'women clothing'))
             category = 'clothing';
         else if (Products.find(p => p.category === 'jewelery'))
-            category = 'jewelery';
+            category = 'jewelry';
         else if (Products.find(p => p.category === 'electronics'))
             category = 'electronics';
+    }
+
+    if (!prod) {
+        return (
+            <NotFound />
+            );
     }
 
     return (
@@ -103,7 +106,7 @@ export default function CategoryDetail({ Products }) {
                                 </Button>
                                 </Container>
                             <Container className={classes.cardGrid} maxWidth="md" style={{ textAlign: 'right' }}>
-                                <img src={prod[1].image} style={{ maxHeight: '400px', maxWidth: '300px' }} />
+                                <img src={prod[1].image} alt="Product" style={{ maxHeight: '400px', maxWidth: '300px' }} />
                                 </Container>
                             </Card>
                         </Grid>
