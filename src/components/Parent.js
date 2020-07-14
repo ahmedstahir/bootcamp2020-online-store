@@ -128,7 +128,7 @@ export default function Parent() {
                     <Toolbar className={classes.toolbar}>
                         <StoreIcon className={classes.icon} />
                         <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                            Your React Online Store
+                            The React Online Store
                         </Typography>
                         <Button href="/" variant="contained" color="secondary" className={classes.link}>
                             Home
