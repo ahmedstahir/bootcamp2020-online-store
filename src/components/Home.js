@@ -56,28 +56,12 @@ export default function Home() {
             {/* Hero unit */}
             <div className={classes.heroContent}>
                 <Container maxWidth="sm">
-                    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                        Album layout
-                            </Typography>
+                    <Typography component="h3" variant="h3" align="center" color="textPrimary" gutterBottom>
+                        Welcome!
+                    </Typography>
                     <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                        Something short and leading about the collection below—its contents, the creator, etc.
-                        Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                        entirely.
-                            </Typography>
-                    <div className={classes.heroButtons}>
-                        <Grid container spacing={2} justify="center">
-                            <Grid item>
-                                <Button variant="contained" color="primary">
-                                    Main call to action
-                                        </Button>
-                            </Grid>
-                            <Grid item>
-                                <Button variant="outlined" color="primary">
-                                    Secondary action
-                                        </Button>
-                            </Grid>
-                        </Grid>
-                    </div>
+                        The React Online Store - home of the finest products that are categorized for easy access
+                    </Typography>
                 </Container>
             </div>
             <Container className={classes.cardGrid} maxWidth="md">
@@ -95,7 +79,7 @@ export default function Home() {
                                     Clothing
                                         </Typography>
                                 <Typography>
-                                    This is a media card. You can use this section to describe the content.
+                                    Browse through a wide range of clothing products
                                         </Typography>
                             </CardContent>
                             <CardActions>
@@ -117,7 +101,7 @@ export default function Home() {
                                     Jewelry
                                             </Typography>
                                 <Typography>
-                                    This is a media card. You can use this section to describe the content.
+                                    Adorn yourself for every occasion including fancy events, parties or just casual meetups
                                 </Typography>
                             </CardContent>
                             <CardActions>
@@ -139,7 +123,7 @@ export default function Home() {
                                     Electronics
                                             </Typography>
                                 <Typography>
-                                    This is a media card. You can use this section to describe the content.
+                                    Gadgets to meet your every requirement in this high-tech era
                                             </Typography>
                             </CardContent>
                             <CardActions>

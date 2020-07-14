@@ -15,6 +15,8 @@ import Home from './Home'
 import Clothing from './Clothing'
 import Jewelry from './Jewelry'
 import Electronics from './Electronics'
+import CategoryIndex from './CategoryIndex'
+import CategoryDetail from './CategoryDetail'
 
 
 function GitHub() {
@@ -126,9 +128,18 @@ export default function Parent() {
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<Home />} />
-                            <Route path="clothing" element={<Clothing Products={clothingProducts} />} />
-                            <Route path="jewelry" element={<Jewelry Products={jewelryProducts} />} />
-                            <Route path="electronics" element={<Electronics Products={electronicProducts} />} />
+                            <Route path="clothing" element={<Clothing />}>
+                                <Route path="/" element={<CategoryIndex Products={clothingProducts} />} />
+                                <Route path=":productId" element={<CategoryDetail Products={clothingProducts} />} />
+                            </Route>
+                            <Route path="jewelry" element={<Jewelry />}>
+                                <Route path="/" element={<CategoryIndex Products={jewelryProducts} />} />
+                                <Route path=":productId" element={<CategoryDetail Products={jewelryProducts} />} />
+                            </Route>
+                            <Route path="electronics" element={<Electronics />}>
+                                <Route path="/" element={<CategoryIndex Products={electronicProducts} />} />
+                                <Route path=":productId" element={<CategoryDetail Products={electronicProducts} />} />
+                            </Route>
                         </Routes>
                     </BrowserRouter>
                 </main>

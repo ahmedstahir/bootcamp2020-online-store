@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Outlet } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Jewelry({ Products }) {
+export default function Jewelry() {
 
     const classes = useStyles();
 
@@ -64,56 +65,17 @@ export default function Jewelry({ Products }) {
             {/* Hero unit */}
             <div className={classes.heroContent}>
                 <Container maxWidth="sm">
-                    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                    <Typography component="h3" variant="h3" align="center" color="textPrimary" gutterBottom>
                         Home of Jewelry Items
                             </Typography>
                     <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                        Something short and leading about the collection below—its contents, the creator, etc.
-                        Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                        entirely.
+                        Adorn yourself for every occasion including fancy events, parties or just casual meetups
                             </Typography>
-                    <div className={classes.heroButtons}>
-                        <Grid container spacing={2} justify="center">
-                            <Grid item>
-                                <Button variant="contained" color="primary">
-                                    Main call to action
-                                        </Button>
-                            </Grid>
-                            <Grid item>
-                                <Button variant="outlined" color="primary">
-                                    Secondary action
-                                        </Button>
-                            </Grid>
-                        </Grid>
-                    </div>
                 </Container>
             </div>
-            <Container className={classes.cardGrid} maxWidth="md">
-                {/* End hero unit */}
-                <Grid container spacing={4}>
-                    {Object.entries(Products).map((prod) => (
-                        <Grid item key={prod[0]} xs={12} sm={6} md={4}>
-                            <Card className={classes.root}>
-                                <div className={classes.details}>
-                                    <CardContent className={classes.content}>
-                                        <Typography component="h6" variant="subtitle2">
-                                            {prod[1].title}
-                                        </Typography>
-                                        <Typography variant="body2" color="textSecondary">
-                                            Price: ${Math.abs(prod[1].price).toFixed(2)}
-                                        </Typography>
-                                    </CardContent>
-                                </div>
-                                <CardMedia
-                                    className={classes.cover}
-                                    image={prod[1].image}
-                                    title={prod[1].title}
-                                />
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
-            </Container>
+            {/* End hero unit */}
+
+            <Outlet />
         </>
     );
 }
