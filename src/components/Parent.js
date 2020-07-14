@@ -9,7 +9,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import StoreIcon from '@material-ui/icons/Store';
 import Button from '@material-ui/core/Button';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import Home from './Home'
 import Clothing from './Clothing'
@@ -128,7 +128,7 @@ export default function Parent() {
                     <Toolbar className={classes.toolbar}>
                         <StoreIcon className={classes.icon} />
                         <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                            The React Online Store
+                            Your React Online Store
                         </Typography>
                         <Button href="/" variant="contained" color="secondary" className={classes.link}>
                             Home
@@ -136,7 +136,7 @@ export default function Parent() {
                     </Toolbar>
                 </AppBar>  
                 <main style={{ backgroundColor: '#121212' }}>
-                    <BrowserRouter>
+                    
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="clothing" element={<Clothing />}>
@@ -153,7 +153,7 @@ export default function Parent() {
                             </Route>
                             <Route path="*" element={<NotFound />} />
                         </Routes>
-                    </BrowserRouter>
+                    
                 </main>
                 {/* Footer */}
                 <footer className={classes.footer}>

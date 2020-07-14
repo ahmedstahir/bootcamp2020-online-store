@@ -53,7 +53,6 @@ export default function Home() {
 
     return (
         <>
-            {/* Hero unit */}
             <div className={classes.heroContent}>
                 <Container maxWidth="sm">
                     <Typography component="h3" variant="h3" align="center" color="textPrimary" gutterBottom>
@@ -65,7 +64,6 @@ export default function Home() {
                 </Container>
             </div>
             <Container className={classes.cardGrid} maxWidth="md">
-                {/* End hero unit */}
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={6} md={4}>
                         <Card className={classes.card}>
